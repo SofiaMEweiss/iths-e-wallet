@@ -6,8 +6,8 @@
             <section  class="card-number"><p class="p-big">XXXX XXXX XXXX XXXX</p></section >
             <section  class="cardholder-name"><p>CARDHOLDER NAME</p></section >
             <section  class="valid-thru"><p>VALID THRU</p></section >
-            <section  class="first-name"><p class="p-medium">FIRST NAME</p></section >
-            <section  class="last-name"><p class="p-medium">LAST NAME</p></section >
+            <section  class="full-name"><p class="p-medium">FIRSTNAME LASTNAME</p></section >
+            <!-- <section  class="last-name"><p class="p-medium">LAST NAME</p></section > -->
             <section  class="expiration-date"><p class="p-medium">MM/YY</p></section >
         </section>
     </main>
@@ -76,13 +76,8 @@ section {
     justify-content: flex-end;
 }
 
-.first-name{
-    grid-column: 1/2;
-}
-
-.last-name {
-    grid-column: 2/3;
-    justify-content: flex-end;
+.full-name{
+    grid-column: 1/3;
 }
 
 .expiration-date {
