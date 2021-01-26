@@ -1,17 +1,16 @@
 <template>
-<main class="wrapper">
-  <section class="card">
-<div class="nummer1">Blipp + Märke </div>
-<div class="nummer2"> Chip</div>
-<div class="nummer3"> Kortnummer </div>
-<div class="nummer4">CARDHOLDER NAME</div>
-<div class="nummer5">VALID THRU</div>
-<div class="nummer6"> Förnamn </div>
-<div class="nummer7">Efternamn</div>
-<div class="nummer8">mm/YY</div>
-
-  </section>
-  </main>
+    <main>
+        <section class="bank-card">
+            <section class="card-chip"><img src="../assets/chip-dark.svg"/></section >
+            <section  class="card-vendor"><img src="../assets/vendor-bitcoin.svg"/></section >
+            <section  class="card-number"><p class="p-big">XXXX XXXX XXXX XXXX</p></section >
+            <section  class="cardholder-name"><p>CARDHOLDER NAME</p></section >
+            <section  class="valid-thru"><p>VALID THRU</p></section >
+            <section  class="first-name"><p class="p-medium">FIRST NAME</p></section >
+            <section  class="last-name"><p class="p-medium">LAST NAME</p></section >
+            <section  class="expiration-date"><p class="p-medium">MM/YY</p></section >
+        </section>
+    </main>
 </template>
 
 <script>
@@ -22,61 +21,86 @@ export default {
 
 <style scoped>
 
-.wrapper {
+main {
     display: flex;
-    /* align-items: center; */
     justify-content: center;
-
 }
-.card {
+
+.bank-card {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    background-color: grey;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    /* grid-row-gap: 10px; */
-    /* grid-column-gap: 10px; */
-    width: 40%;
-    height: 230px;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    width: 410px;
+    height: 220px;
+    background-color: lightgrey;
+    padding: 30px 20px 10px 20px;
     border-radius: 10px;
-    border: 2px solid red;
-    padding: 10px;
-    
-}
-div {background-color: grey;}
-
-.nummer1 {
-    grid-column: 1/4;
-}
-.nummer2 {
-    grid-column: 1/4;
+    border: 1px solid grey;
+    box-shadow: 3px 3px 3px grey;
+    /* grid-row-gap: 10px;
+    grid-column-gap: 10px; */
 }
 
-.nummer3{
-    grid-column: 1/4;
-}
-.nummer4 {
-    grid-column: 1/3;
+section {
     display: flex;
+}
+
+.card-chip {
+    grid-column: 1/3;
+}
+
+.card-vendor {
+    grid-column: 3;
+    align-self: flex-start;
+    justify-content: flex-end;
+    padding-right:10px;
+}
+
+.card-number{
+    grid-column: 1/4;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+}
+
+.cardholder-name {
+    grid-column: 1/3;
     flex-direction: row;
     align-items: flex-end;
 }
 
-.nummer5 {
+.valid-thru {
     grid-column: 3;
-        display: flex;
     flex-direction: row;
     align-items: flex-end;
     justify-content: flex-end;
 }
 
-.nummer6{
+.first-name{
     grid-column: 1/2;
 }
-.nummer7 {
+
+.last-name {
     grid-column: 2/3;
+    justify-content: flex-end;
 }
 
-.nummer8 {
+.expiration-date {
     grid-column: 3;
+    justify-content: flex-end;
 }
+
+p {
+    font-family: pt-mono, monospace;
+    margin: 0px;
+}
+
+.p-big {
+    font-size: 2.3rem;
+}
+
+.p-medium {
+    font-size: 1.4rem;
+}
+
 </style>
