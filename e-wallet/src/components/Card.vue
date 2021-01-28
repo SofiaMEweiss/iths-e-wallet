@@ -1,14 +1,20 @@
 <template>
     <main>
-        <section class="bank-card">
-            <section class="card-chip"><img src="../assets/chip-dark.svg"/></section >
-            <section  class="card-vendor"><img src="../assets/vendor-bitcoin.svg"/></section >
-            <section  class="card-number"><p class="p-big">{{activeCard.cardnumber}}</p></section >
+        <section class="bank-card" :class="activeCard.vendor">
+            <section class="card-chip"><img v-if="activeCard.vendor === 'vendor-bitcoin'" src="../assets/chip-dark.svg">
+                <img v-else-if="activeCard.vendor != 'vendor-bitcoin'" src="../assets/chip-light.svg"/></section >
+            <section  class="card-vendor">
+            <img v-if="activeCard.vendor === 'vendor-bitcoin'" src="../assets/vendor-bitcoin.svg">
+            <img v-else-if="activeCard.vendor === 'vendor-blockchain'" src="../assets/vendor-blockchain.svg">
+            <img v-else-if="activeCard.vendor === 'vendor-evil'" src="../assets/vendor-evil.svg">
+            <img v-else-if="activeCard.vendor === 'vendor-ninja'" src="../assets/vendor-ninja.svg">
+            </section >
+            <section  class="card-number"><p class="p-big">{{activeCard.cardnumber}}</p></section>
             <section  class="cardholder-name"><p>CARDHOLDER NAME</p></section >
             <section  class="valid-thru"><p>VALID THRU</p></section >
-            <section  class="full-name"><p class="p-medium">SOFIA</p></section >
+            <section  class="full-name"><p class="p-medium">{{activeCard.name}}</p></section>
             <!-- <section  class="last-name"><p class="p-medium">LAST NAME</p></section > -->
-            <section  class="expiration-date"><p class="p-medium">MM/YY</p></section >
+            <section  class="expiration-date"><p class="p-medium">{{activeCard.validMonth}}/{{activeCard.validYear}}</p></section >
         </section>
     </main>
 </template>
@@ -98,6 +104,24 @@ p {
 
 .p-medium {
     font-size: 1.4rem;
+}
+
+.vendor-bitcoin {
+    background-color: rgb(225, 180, 67);
+}
+
+.vendor-blockchain {
+    background-color: rgb(128, 81, 230);
+}
+
+.vendor-evil {
+    background-color: rgb(235, 54, 87);
+}
+
+.vendor-ninja {
+    background-color: rgb(50, 50, 50);
+    color: white;
+    text-shadow: 2px 2px black;
 }
 
 </style>

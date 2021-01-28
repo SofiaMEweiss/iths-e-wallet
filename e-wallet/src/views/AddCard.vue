@@ -1,5 +1,5 @@
 <template>
-  <div class="AddCard">
+  <div>
     <Top v-bind:headerTitle="headerTitle" v-bind:addNewCard="addNewCard" />
     <CardForm />
   </div>
@@ -27,7 +27,15 @@ export default {
 </script>
 
 <style scoped>
-
+/* .addCard {
+  border: black solid 3px;
+  border-radius: 10px;
+  padding: 20px;
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
 
 </style>
 
