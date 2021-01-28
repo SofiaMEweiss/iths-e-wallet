@@ -3,10 +3,10 @@
         <section class="bank-card">
             <section class="card-chip"><img src="../assets/chip-dark.svg"/></section >
             <section  class="card-vendor"><img src="../assets/vendor-bitcoin.svg"/></section >
-            <section  class="card-number"><p class="p-big">XXXX XXXX XXXX XXXX</p></section >
+            <section  class="card-number"><p class="p-big">{{activeCard.cardnumber}}</p></section >
             <section  class="cardholder-name"><p>CARDHOLDER NAME</p></section >
             <section  class="valid-thru"><p>VALID THRU</p></section >
-            <section  class="full-name"><p class="p-medium">FIRSTNAME LASTNAME</p></section >
+            <section  class="full-name"><p class="p-medium">SOFIA</p></section >
             <!-- <section  class="last-name"><p class="p-medium">LAST NAME</p></section > -->
             <section  class="expiration-date"><p class="p-medium">MM/YY</p></section >
         </section>
@@ -15,6 +15,9 @@
 
 <script>
 export default {
+    props: { 
+        activeCard: Object
+}
 }
 </script>
 

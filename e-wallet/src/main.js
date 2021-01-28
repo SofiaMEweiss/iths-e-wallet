@@ -8,14 +8,15 @@ new Vue({
     router,
     data: function() {
         return {
-            cardinfo: [{
+            cards: [{
                 id: "",
                 cardholder: "FIRSTNAME LASTNAME",
                 vendor: "",
-                cardnumber: "XXXXXXXXXXXXXXXX",
+                cardnumber: "XXXX XXXX XXXX XXXX",
                 validMonth: "00",
                 validYear: "00"
-            }]
+            }],
+
         }
     },
     render: h => h(App)
