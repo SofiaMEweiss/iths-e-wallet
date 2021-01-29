@@ -90,6 +90,7 @@ methods: {
   addCard(){
     this.activeCard.id = Date.now().toString()
     this.$root.$data.cards.push(this.activeCard)
+    this.$router.push("/")
   }
 }}
 

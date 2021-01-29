@@ -1,9 +1,13 @@
 <template>
   <div class="home">
+    <div>
     <Card :activeCard="activeCardActive" />
     <p>Hej</p>
     <CardStack />
-  </div>
+    </div>
+    <div>
+    <button v-on:click="addCardButton">ADD NEW CARD</button>
+  </div></div>
 </template>
 
 <script>
@@ -17,6 +21,13 @@ export default {
     Card : Card,
     CardStack: CardStack
   },
+
+  methods: {
+    addCardButton() {
+      this.$router.push("/AddCard");
+    }},
+
+
   computed: {
     activeCardActive: function(){
       return this.$root.$data.cards[this.$root.$data.activeCardIndex];
@@ -24,3 +35,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+ button {
+   margin-top: 200px;
+ }
+</style>

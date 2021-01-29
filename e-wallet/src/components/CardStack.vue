@@ -1,8 +1,8 @@
 <template>
   <div>
       <p>YOUR WALLET</p>
-      <div>
-          <Card 
+      <div class="cardstack">
+          <Card
           v-for="card of cardStack"
           :key="card.id"
           :activeCard="card"
@@ -33,5 +33,9 @@ methods: {
 </script>
 
 <style>
-
+.cardstack {
+    position: sticky;
+    display: grid;
+    grid-auto-rows: 100px;
+}
 </style>
