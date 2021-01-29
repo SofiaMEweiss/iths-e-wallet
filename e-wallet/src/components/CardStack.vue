@@ -1,11 +1,11 @@
 <template>
   <div>
+      <p>YOUR WALLET</p>
       <div>
           <Card 
-          v-for="Card of cards"
-          :key="Card.id"
-          :card="Card"
-          @activeCard="activeCard"
+          v-for="card of cardStack"
+          :key="card.id"
+          :activeCard="card"
           />
         </div>
   </div>
@@ -23,6 +23,11 @@ computed: {
         return this.$root.$data.cards
     }
 
+},
+methods: {
+    activeCard(id) {
+        this.$root.activeCard(id)
+    }
 }
 }
 </script>

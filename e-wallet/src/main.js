@@ -8,6 +8,7 @@ new Vue({
     router,
     data: function() {
         return {
+            activeCardIndex: 0,
             cards: [{
                 id: "",
                 cardholder: "FIRSTNAME LASTNAME",
