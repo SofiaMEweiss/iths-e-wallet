@@ -1,7 +1,7 @@
 <template>
 <div>
   <card :activeCard="activeCard"/>
-  <form @submit.prevent="AddCard">
+  <form @submit.prevent="addCard">
     <label for="card-number">CARD NUMBER</label>
     <input 
     name="cardnumber"
@@ -12,12 +12,14 @@
 
     <label for="input-name">CARDHOLDER NAME</label>
     <input
-id="input-name"
+    name="cardholder"
     class="cardform"
     type="type"
     placeholder="Type Firstname Lastname"
     v-model="activeCard.name"
     >
+
+    <!-- id="input-name" -->
 
     <label for="valid-month">VALID THRU MONTH</label>
     <select name="valid-month"
@@ -86,6 +88,7 @@ data(){return{
 
 methods: {
   addCard(){
+    this.activeCard.id = Date.now().toString()
     this.$root.$data.cards.push(this.activeCard)
   }
 }}
