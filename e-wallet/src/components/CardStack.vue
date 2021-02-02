@@ -2,11 +2,12 @@
   <div>
       <p>YOUR WALLET</p>
       <div class="cardstack">
+          <div v-for="(card, index) of cardStack"
+          :key="card.id" @click="onClick(index)"> 
           <Card
-          v-for="card of cardStack"
-          :key="card.id"
           :activeCard="card"
           />
+          </div>
         </div>
   </div>
 </template>
@@ -27,9 +28,11 @@ computed: {
 methods: {
     activeCard(id) {
         this.$root.activeCard(id)
-    }
-}
-}
+    },
+
+onClick(index) {
+    this.$root.$data.activeCardIndex = index;
+}}}
 </script>
 
 <style>
