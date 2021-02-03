@@ -16,7 +16,7 @@ import Card from '../components/Card'
 export default {
 
     components: {
-        Card: Card
+        Card
     },
 computed: {
     cardStack(){
