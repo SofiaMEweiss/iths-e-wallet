@@ -1,6 +1,5 @@
 <template>
-  <div>
-      <p>YOUR WALLET</p>
+  <section>
       <div class="cardstack">
           <div v-for="(card, index) of cardStack"
           :key="card.id" @click="onClick(index)"> 
@@ -9,7 +8,7 @@
           />
           </div>
         </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -41,4 +40,5 @@ onClick(index) {
     display: grid;
     grid-auto-rows: 100px;
 }
+
 </style>

@@ -1,6 +1,7 @@
 <template>
     <main>
-        <section class="bank-card" :class="activeCard.vendor">
+        <section v-if="activeCard==null">Hej</section>
+        <section v-else class="bank-card" :class="activeCard.vendor">
             <section class="card-chip"><img v-if="activeCard.vendor === 'vendor-bitcoin'" src="../assets/chip-dark.svg">
                 <img v-else-if="activeCard.vendor != 'vendor-bitcoin'" src="../assets/chip-light.svg"/></section >
             <section  class="card-vendor">

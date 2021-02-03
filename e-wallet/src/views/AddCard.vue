@@ -1,42 +1,30 @@
 <template>
-  <div>
-    <Top v-bind:headerTitle="headerTitle" v-bind:addNewCard="addNewCard" />
+  <section>
+    <TopHeader :topHeading="topHeading" :subHeading="subHeading" />
     <CardForm />
-  </div>
+  </section>
 </template>
 
 <script>
-import Top from '../components/Top'
-
+import TopHeader from '../components/TopHeader'
 import CardForm from '../components/CardForm'
-export default {
-  components: {
-        Top: Top,
 
-        CardForm: CardForm
+export default {
+
+    components: {
+      TopHeader,
+      CardForm
     },
 
     data(){ return { 
-      headerTitle: "ADD A NEW BANK CARD",
-      addNewCard: "NEW CARD"
+      topHeading: "ADD A NEW BANK CARD",
+      subHeading: "NEW CARD"
 
-      }}
-
-
+    }}
 }
 </script>
 
 <style scoped>
-/* .addCard {
-  border: black solid 3px;
-  border-radius: 10px;
-  padding: 20px;
-  width: 550px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
-
 </style>
 
 

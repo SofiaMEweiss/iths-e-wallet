@@ -18,7 +18,6 @@ const routes = [{
             //Ta bort enligt Davids föreläsning:
             // () =>
             //     import ( /* webpackChunkName: "about" */ "../views/AddCard.vue") 
-
     }
 ];
 

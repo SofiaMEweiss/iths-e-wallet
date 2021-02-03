@@ -6,19 +6,24 @@ Vue.config.productionTip = false;
 
 new Vue({
     router,
+
     data: function() {
         return {
             activeCardIndex: -1,
+
             cards: [{
                 id: "",
-                cardholder: "FIRSTNAME LASTNAME",
+                cardholder: "",
                 vendor: "",
-                cardnumber: "XXXX XXXX XXXX XXXX",
-                validMonth: "00",
-                validYear: "00"
+                cardnumber: "",
+                validMonth: "",
+                validYear: ""
             }],
 
         }
     },
+
     render: h => h(App)
-}).$mount("#app");
+})
+
+.$mount("#app");
