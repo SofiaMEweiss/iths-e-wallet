@@ -2,7 +2,7 @@
   <div class="home">
     <div>
     <Card :activeCard="activeCardActive" />
-    <p>Hej</p>
+    <button v-on:click="removeCard">Remove Card</button>
     <CardStack />
     </div>
     <div>
@@ -25,6 +25,9 @@ export default {
   methods: {
     addCardButton() {
       this.$router.push("/AddCard");
+    },
+    removeCard(){
+      this.$root.$data.cards.splice(this.$root.$data.activeCardIndex, this.$root.$data.activeCardIndex)
     }},
 
 
