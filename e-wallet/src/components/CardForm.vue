@@ -1,28 +1,29 @@
 <template>
   <section>
-    <card :activeCard="activeCard"/>
+    <CreditCard :activeCard="activeCard"/>
     <form @submit.prevent="addCard">
       <label for="card-number">CARD NUMBER</label>
       <input 
       name="cardnumber"
-      type="text"
-      placeholder="Type XXXX XXXX XXXX XXXX"
-      v-model="activeCard.cardnumber"        
+      placeholder="Type card number"
+      v-mask="'#### #### #### ####'"
+      v-model="activeCard.cardnumber" 
+      required       
       >
-
       <label for="input-name">CARDHOLDER NAME</label>
       <input
       name="cardholder"
-      class="cardform"
-      type="type"
-      placeholder="Type Firstname Lastname"
-      v-model="activeCard.name"
+      type="text"
+      placeholder="Type firstname lastname"
+      maxlength="26"
+      v-model="activeCard.cardholder"
+      required  
       >
-
       <label for="valid-month">VALID THRU MONTH</label>
       <select 
       name="valid-month"
       v-model="activeCard.validMonth"
+      required  
       >
         <option value="month" disabled selected></option>
         <option value="01">1</option>
@@ -38,11 +39,11 @@
         <option value="11">11</option>
         <option value="12">12</option>
       </select>
-
-      <label for="valid-year">YEAR</label>
+      <label for="valid-year">VALID THRU YEAR</label>
       <select 
       name="valid-year" 
       v-model="activeCard.validYear"
+      required
       >
         <option value="year" disabled selected></option>
         <option value="21">21</option>
@@ -50,74 +51,48 @@
         <option value="23">23</option>
         <option value="24">24</option>
       </select>
-
       <label for="vendor">VENDOR</label>
       <select   
       name="vendor" 
       v-model="activeCard.vendor"
+      required  
       >
         <option value="vendor-bitcoin">Bitcoin Inc</option>
         <option value="vendor-blockchain">Blockchain Inc</option>
         <option value="vendor-evil">Evil Corp</option>
         <option value="vendor-ninja">Ninja Bank</option>
       </select>
-
       <button>ADD A NEW CARD</button>
     </form>
   </section>
 </template>
 
 <script>
-import Card from '../components/Card'
+  import CreditCard from '../components/CreditCard'
 
-export default {
-  components: {
-    Card
-  },
+  export default {
+    components: {
+     CreditCard
+    },
   
-data(){return{
-  activeCard: {
+  data(){return{
+    activeCard: {
       id: "",
-                cardholder: "FIRSTNAME LASTNAME",
-                vendor: "",
-                cardnumber: "XXXX XXXX XXXX XXXX",
-                validMonth: "MM",
-                validYear: "YY"
-  }
-}
-},
+      cardholder: "",
+      vendor: "",
+      cardnumber: "",
+      validMonth: "MM",
+      validYear: "YY"
+    }
+  }},
 
-methods: {
-  addCard(){
-    this.activeCard.id = Date.now().toString()
-    this.$root.$data.cards.push(this.activeCard)
-    this.$router.push("/")
-  }
-}}
-
-
-
-//     cardInfo:{
-//       id:9393939393,
-//       cardHolder: "Sofia Weiss"},
-
-// cards: this.$root.$data.cards,
-
-// newContent:''
-// }},
-// methods:{
-//     addName(){
-        
-//         this.cards.push({
-//             id: Date.now(),
-//             cardholder: this.cardholder,
-//           })
-//         this.cardholder=''
-        
-//     }
-
-// }
-// }
+  methods: {
+    addCard(){
+      this.activeCard.id = Date.now().toString()
+      this.$root.$data.cards.push(this.activeCard)
+      this.$router.push("/")
+    }
+  }}
 </script>
 
 <style scoped>
@@ -126,11 +101,11 @@ div {
   flex-direction: column;
   font-family: pt-mono, monospace;
 }
+
 form {
   display: flex;
   flex-direction: column;
   align-items: center
-
 }
 
 label, input {
@@ -160,12 +135,15 @@ select {
 button {
   width: 450px;
   background-color: white;
-  border: black solid 3px;
+  border: black solid 4px;
   border-radius: 7px;
   padding: 15px;
   font-size: 2rem;
   font-family: pt-mono, monospace;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
+button:hover {
+  background-color: rgb(233, 212, 203);
+}
 </style>

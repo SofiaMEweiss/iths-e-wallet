@@ -2,7 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import AddCard from "../views/AddCard.vue";
-//Raden ovan las till från David föreläsning.
 
 Vue.use(VueRouter);
 
@@ -15,9 +14,6 @@ const routes = [{
         path: "/AddCard",
         name: "AddCard",
         component: AddCard
-            //Ta bort enligt Davids föreläsning:
-            // () =>
-            //     import ( /* webpackChunkName: "about" */ "../views/AddCard.vue") 
     }
 ];
 

@@ -7,15 +7,12 @@
 
 <script>
 export default {
-
     props: {
         topHeading: String,
         subHeading: String
     }
-
 }
 </script>
-
 
 <style scoped>
 header {
