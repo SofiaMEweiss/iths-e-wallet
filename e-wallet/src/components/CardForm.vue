@@ -1,13 +1,13 @@
 <template>
   <section>
-    <CreditCard :activeCard="activeCard"/>
+    <CreditCard :newCard="newCard"/>
     <form @submit.prevent="addCard">
       <label for="card-number">CARD NUMBER</label>
       <input 
       name="cardnumber"
       placeholder="Type card number"
       v-mask="'#### #### #### ####'"
-      v-model="activeCard.cardnumber" 
+      v-model="newCard.cardnumber" 
       required       
       >
       <label for="input-name">CARDHOLDER NAME</label>
@@ -16,13 +16,13 @@
       type="text"
       placeholder="Type firstname lastname"
       maxlength="26"
-      v-model="activeCard.cardholder"
+      v-model="newCard.cardholder"
       required  
       >
       <label for="valid-month">VALID THRU MONTH</label>
       <select 
       name="valid-month"
-      v-model="activeCard.validMonth"
+      v-model="newCard.validMonth"
       required  
       >
         <option value="month" disabled selected></option>
@@ -42,7 +42,7 @@
       <label for="valid-year">VALID THRU YEAR</label>
       <select 
       name="valid-year" 
-      v-model="activeCard.validYear"
+      v-model="newCard.validYear"
       required
       >
         <option value="year" disabled selected></option>
@@ -54,7 +54,7 @@
       <label for="vendor">VENDOR</label>
       <select   
       name="vendor" 
-      v-model="activeCard.vendor"
+      v-model="newCard.vendor"
       required  
       >
         <option value="vendor-bitcoin">Bitcoin Inc</option>
@@ -76,7 +76,7 @@
     },
   
   data(){return{
-    activeCard: {
+    newCard: {
       id: "",
       cardholder: "",
       vendor: "",
@@ -88,8 +88,8 @@
 
   methods: {
     addCard(){
-      this.activeCard.id = Date.now().toString()
-      this.$root.$data.cards.push(this.activeCard)
+      this.newCard.id = Date.now().toString()
+      this.$root.$data.cards.push(this.newCard)
       this.$router.push("/")
     }
   }}

@@ -2,7 +2,7 @@
   <section>
       <div class="cardstack">
           <div v-for="(card, index) of cardStack" :key="card.id" @click="onClick(index)"> 
-            <CreditCard :activeCard="card"/>
+            <CreditCard :newCard="card"/>
           </div>
         </div>
   </section>
@@ -24,7 +24,7 @@ export default {
 
     methods: {
         activeCard(id) {
-        this.$root.activeCard(id)
+        this.$root.newCard(id)
         },
 
         onClick(index) {

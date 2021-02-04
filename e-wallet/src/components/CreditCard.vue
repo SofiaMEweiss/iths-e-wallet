@@ -1,19 +1,19 @@
 <template>
     <main>
-        <section v-if="activeCard==null"></section>
-        <section v-else class="bank-card" :class="activeCard.vendor">
+        <section v-if="newCard==null"></section>
+        <section v-else class="bank-card" :class="newCard.vendor">
             <section class="card-chip">
-                <img v-if="activeCard.vendor === 'vendor-bitcoin'" src="../assets/chip-dark.svg">
+                <img v-if="newCard.vendor === 'vendor-bitcoin'" src="../assets/chip-dark.svg">
                 <img v-else src="../assets/chip-light.svg"/>
             </section >
             <section  class="card-vendor">
-                <img v-if="activeCard.vendor === 'vendor-bitcoin'" src="../assets/vendor-bitcoin.svg">
-                <img v-else-if="activeCard.vendor === 'vendor-blockchain'" src="../assets/vendor-blockchain.svg">
-                <img v-else-if="activeCard.vendor === 'vendor-evil'" src="../assets/vendor-evil.svg">
-                <img v-else-if="activeCard.vendor === 'vendor-ninja'" src="../assets/vendor-ninja.svg">
+                <img v-if="newCard.vendor === 'vendor-bitcoin'" src="../assets/vendor-bitcoin.svg">
+                <img v-else-if="newCard.vendor === 'vendor-blockchain'" src="../assets/vendor-blockchain.svg">
+                <img v-else-if="newCard.vendor === 'vendor-evil'" src="../assets/vendor-evil.svg">
+                <img v-else-if="newCard.vendor === 'vendor-ninja'" src="../assets/vendor-ninja.svg">
             </section >
             <section  class="card-number">
-                <p class="p-big">{{activeCard.cardnumber}}</p>
+                <p class="p-big">{{newCard.cardnumber}}</p>
             </section>
             <section  class="cardholder-name">
                 <p>CARDHOLDER NAME</p>
@@ -22,10 +22,10 @@
                 <p>VALID THRU</p>
             </section >
             <section  class="full-name">
-                <p class="p-medium">{{activeCard.cardholder}}</p>
+                <p class="p-medium">{{newCard.cardholder}}</p>
             </section>
             <section  class="expiration-date">
-                <p class="p-medium">{{activeCard.validMonth}}/{{activeCard.validYear}}</p>
+                <p class="p-medium">{{newCard.validMonth}}/{{newCard.validYear}}</p>
             </section >
         </section>
     </main>
@@ -34,7 +34,7 @@
 <script>
 export default {
     props: { 
-        activeCard: Object
+        newCard: Object
     }
 }
 </script>

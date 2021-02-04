@@ -1,12 +1,12 @@
 <template>
   <section class="container">
     <TopHeader :topHeading="topHeading" />
-      <section v-if="activeCardActive==null">
+      <section v-if="activeCard==null">
         <p>YOU HAVE NOT SELECTED A CARD</p>
       </section>
       <section v-else>
         <TopHeader :subHeading="subHeading" />
-        <CreditCard :activeCard="activeCardActive" />
+        <CreditCard :newCard="activeCard" />
         <button  class="remove-button" v-on:click="removeCard">REMOVE CARD</button>
       </section>
       <h2>YOUR CARDS</h2>
@@ -48,7 +48,7 @@ export default {
   },
 
   computed: {
-    activeCardActive: function(){
+    activeCard: function(){
       if(this.$root.$data.cards.length!=0){
       return this.$root.$data.cards[this.$root.$data.activeCardIndex];
       }
