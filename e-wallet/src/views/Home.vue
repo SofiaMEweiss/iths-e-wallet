@@ -42,7 +42,8 @@ export default {
     removeCard(){
       let confirmation = window.confirm("Are you sure you want to delete this card permanently?");
       if (confirmation === true){
-      this.$root.$data.cards.splice(this.$root.$data.activeCardIndex, 1)
+      this.$root.$data.cards.splice(this.$root.$data.activeCardIndex, 1);
+      this.$root.$data.activeCardIndex = -1;
       }
     }
   },
